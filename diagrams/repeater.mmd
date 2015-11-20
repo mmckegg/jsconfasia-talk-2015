@@ -1,0 +1,26 @@
+graph LR
+L((Launchpad))
+subgraph JavaScript #JS
+  rate[ToggleButtons]
+  position[PositionFromMidiClock]
+  input[LaunchpadToGrid]
+  repeater[Repeater]
+  position --> |currentPosition| repeater
+  rate --> |repeatRate| repeater
+  input ==> repeater
+  repeater --> output1[GridToMidi]
+  repeater --> output2[GridToMidi]
+  repeater --> output3[GridToMidi]
+  repeater --> output4[GridToMidi]
+end
+subgraph Ableton Live #AL
+  C((midi clock))
+  T(midi input)
+end
+C -.-> position
+L -.-> input
+L -.-> rate
+output1 -.-> T
+output2 -.-> T
+output3 -.-> T
+output4 -.-> T

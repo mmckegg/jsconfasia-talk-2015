@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8" />
+  <title>Slides</title>
+  <style>
+    body, html {
+      height: 100%;
+      background: #222;
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+      overflow: hidden;
+      color: #CCC;
+      font-weight: lighter;
+      font-size: 40px;
+      letter-spacing: 1px;
+    }
+
+    h1, h2, h3 {
+      font-weight: lighter;
+      text-align: center;
+      color: white;
+      margin: 20px 0;
+      max-width: 80%;
+    }
+
+    p {
+      max-width: 80%;
+      text-align: center;
+    }
+
+    a {
+      color: #F0F;
+      text-decoration: none;
+      font-weight: normal;
+    }
+
+    ul {
+      max-width: 70%;
+    }
+
+    strong {
+      color: #0FF;
+      font-weight: normal;
+    }
+
+    em {
+      color: #FF0;
+    }
+
+    em strong {
+      color: #FFA;
+    }
+
+    h1 {
+      font-size: 300%;
+    }
+
+    h2 {
+      font-size: 200%;
+    }
+
+    img {
+      max-width: 90%;
+      max-height: 80%
+    }
+
+    .coffeescript .javascript, .javascript .xml, .tex .hljs-formula, .xml .javascript, .xml .vbscript, .xml .css, .xml .hljs-cdata {
+      opacity: 0.9 !important;
+    }
+
+    .Viewer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+      justify-content: center;
+    }
+
+    .Viewer > * {
+      display: none
+    }
+
+    .Viewer > .-active {
+      display: block
+    }
+
+    .Viewer > blockquote {
+      display: none !important
+    }
+
+    pre {
+      min-width: 60%;
+      max-height: 80%;
+      overflow: auto;
+      padding: 10px;
+      background: #111;
+      border: 1px solid #333;
+      color: #DDD;
+    }
+
+    pre > code {
+      display: block;
+      font: 20px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+      padding: 10px;
+      padding-bottom: 100px;
+    }
+
+    p code, ul code {
+      padding: 0 10px;
+      background: #111;
+      color: #EEE;
+      border: 1px solid #333;
+      font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    }
+
+    ::selection {
+      background: #AAA;
+    }
+
+    /*
+Monokai style - ported by Luigi Maselli - http://grigio.org
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #272822;
+  -webkit-text-size-adjust: none;
+}
+
+.hljs-tag,
+.hljs-tag .hljs-title,
+.hljs-keyword,
+.hljs-literal,
+.hljs-strong,
+.hljs-change,
+.hljs-winutils,
+.hljs-flow,
+.nginx .hljs-title,
+.tex .hljs-special {
+  color: #f92672;
+}
+
+.hljs {
+  color: #ddd;
+}
+
+.hljs .hljs-constant,
+.asciidoc .hljs-code,
+.markdown .hljs-code {
+  color: #66d9ef;
+}
+
+.hljs-code,
+.hljs-class .hljs-title,
+.hljs-header {
+  color: white;
+}
+
+.hljs-link_label,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-symbol .hljs-string,
+.hljs-value,
+.hljs-regexp {
+  color: #bf79db;
+}
+
+.hljs-link_url,
+.hljs-tag .hljs-value,
+.hljs-string,
+.hljs-bullet,
+.hljs-subst,
+.hljs-title,
+.hljs-emphasis,
+.hljs-type,
+.hljs-preprocessor,
+.hljs-pragma,
+.ruby .hljs-class .hljs-parent,
+.hljs-built_in,
+.django .hljs-template_tag,
+.django .hljs-variable,
+.smalltalk .hljs-class,
+.django .hljs-filter .hljs-argument,
+.smalltalk .hljs-localvars,
+.smalltalk .hljs-array,
+.hljs-attr_selector,
+.hljs-pseudo,
+.hljs-addition,
+.hljs-stream,
+.hljs-envvar,
+.apache .hljs-tag,
+.apache .hljs-cbracket,
+.tex .hljs-command,
+.hljs-prompt,
+.hljs-name {
+  color: #a6e22e;
+}
+
+.hljs-comment,
+.hljs-annotation,
+.smartquote,
+.hljs-blockquote,
+.hljs-horizontal_rule,
+.hljs-decorator,
+.hljs-pi,
+.hljs-doctype,
+.hljs-deletion,
+.hljs-shebang,
+.apache .hljs-sqbracket,
+.tex .hljs-formula {
+  color: #75715e;
+}
+
+.hljs-keyword,
+.hljs-literal,
+.css .hljs-id,
+.hljs-doctag,
+.hljs-title,
+.hljs-header,
+.hljs-type,
+.vbscript .hljs-built_in,
+.rsl .hljs-built_in,
+.smalltalk .hljs-class,
+.diff .hljs-header,
+.hljs-chunk,
+.hljs-winutils,
+.bash .hljs-variable,
+.apache .hljs-tag,
+.tex .hljs-special,
+.hljs-request,
+.hljs-status {
+  font-weight: bold;
+}
+
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
+  opacity: 0.5;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class='Viewer'>
+    <h1>I Play the JavaScript</h1>
+<p>by <a href="http://twitter.com/MattMcKegg" target="_blank">@MattMcKegg</a></p>
+<h2>Hey, I'm <strong>Matt</strong> from <strong>New Zealand</strong>.</h2>
+<p>I make <em>music</em> with <em>computers</em>.</p>
+<blockquote>
+<p>I have been using computers to make music for nearly 15 years.</p>
+</blockquote>
+<blockquote>
+<p>Today I'm going to talk about my musical journey, and how I started using JavaScript to enhance my live performances, and what drove me to start writing my own music software called <a href="http://loopjs.com" target="_blank">Loop Drop</a>.</p>
+</blockquote>
+<blockquote>
+<p>It's pretty much all live demos from here on in. Wish me luck :)</p>
+</blockquote>
+<h2>Computer Music</h2>
+<blockquote>
+<p>This is <a href="https://www.ableton.com/en/live/" target="_blank">Ableton Live</a>. And here is a song I made. It was not recorded, it was drawn. Note by note. This is what separates computer music, from computer recording.</p>
+</blockquote>
+<h3>Painted, not played.</h3>
+<p>You are <strong>master of time</strong>.</p>
+<blockquote>
+<p>This is how the vast majority of electronic music is created today. Elements of this are also used in most other genres too. Less and less popular music is being recorded, instead it is being painted.</p>
+</blockquote>
+<h2>A little bit internet famous.</h2>
+<p><a href="http://lunarmusic.net/album/hybrid-awaken" target="_blank">http://lunarmusic.net/album/hybrid-awaken</a></p>
+<blockquote>
+<p>In 2006, I released my first album on the internet. It was just a collection of stuff I'd been working on for the years previous. I put up a website with some artwork, and a streaming player, with a great big free download button. Not sure quite how this happened, but somehow, it got picked up by a music blog. I guess bedroom composers were less common in those days? Next minute the link hit StumbleUpon, and I started getting hundreds of visitors every day. Dozens of people were downloading my album. I started to receive fan mail.</p>
+</blockquote>
+<blockquote>
+<p>There were requests from people all over the world asking me to come play live.</p>
+</blockquote>
+<h2>But how do you play computer music <strong>live</strong>?</h2>
+<blockquote>
+<p>There's really only two options.</p>
+</blockquote>
+<h3><strong>Recruit a bunch of musicians and perform every part for real?</strong></h3>
+<blockquote>
+<p>That could be really cool, and a lot of fun! But oh, the cost. And it would be completely different, possible much better. But it's not computer music.</p>
+</blockquote>
+<h3><strong>DJ it!</strong></h3>
+<blockquote>
+<p>This is a very common strategy. People just wanna hear your tunes! Why not just push play and twiddle knobs? For bonus points, you could create loops of all the individual parts of your song, trigger those live, and maybe play the synth line, or percussion using a midi controller.</p>
+</blockquote>
+<blockquote>
+<p>So many electronic musicians do this. They have a whole bunch of knobs and twiddles and complexity, but they are basically just DJing their bedroom/studio compositions (at most remixing). Minus the ordering and effects (filters, stutters, etc), they're stuck with whatever they painted in the studio.</p>
+</blockquote>
+<blockquote>
+<p>This is what I started trying to do around 2010. I bought myself a Novation Launchpad, and tried to use it with Ableton Live and a midi keyboard.</p>
+</blockquote>
+<h2>I want to feel like I'm <strong>playing an instrument</strong>.</h2>
+<blockquote>
+<p>A guitarist can just sit down and jam out, I wanted that kind of experience.</p>
+</blockquote>
+<blockquote>
+<p>It took me so much effort to prepare my live sets. I had to mix down all the individual parts, cram them all into one project. And then when it came to play live, there was very little flexibility, and I'd end up making mistakes of a technical nature and be far too focused on remember the correct sequence trigger.</p>
+</blockquote>
+<h2><strong>JavaScript</strong> to the rescue!</h2>
+<blockquote>
+<p>After my disappointing attempt at live computer music in 2010 and 2011, I started experiment with writing my own node.js hackery for processing midi.</p>
+</blockquote>
+<h3>What is <strong>Midi</strong>?</h3>
+<p><strong>M</strong>usical <strong>I</strong>nstrument <strong>D</strong>igital <strong>I</strong>nterface</p>
+<blockquote>
+<p>It's a protocol developed way back in the 1980s allowing musicians to connect various different musical devices together. It allowed one device to trigger another devices sounds. You could connect your keyboard to an advanced sound module, or a sequencer to your synthesizer. In these days, the use of the computer would be the opposite way around to today. You would be sending MIDI to a synthesizer, sampler.</p>
+</blockquote>
+<blockquote>
+<p>Important to note that MIDI is now mostly unrelated from <strong>.midi</strong> files.</p>
+</blockquote>
+<h2>midi-stream</h2>
+<p><a href="https://github.com/livejs/midi-stream" target="_blank">https://github.com/livejs/midi-stream</a></p>
+<blockquote>
+<p>This module let's you connect to midi devices in Node.js and the browser (via Web MIDI).</p>
+</blockquote>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> MidiStream = <span class="hljs-built_in">require</span>(<span class="hljs-string">'midi-stream'</span>)
+
+<span class="hljs-keyword">var</span> keyboard = MidiStream(<span class="hljs-string">'LPK25'</span>, {
+  normalizeNotes: <span class="hljs-literal">true</span>
+})
+keyboard.on(<span class="hljs-string">'data'</span>, <span class="hljs-built_in">console</span>.log)
+</code></pre>
+<h3>virtual midi port</h3>
+<blockquote>
+<p>We can also create virtual midi keyboards. It will show up in our music software as if it is hardware connected to the computer, but we can send whatever messages we want.</p>
+</blockquote>
+<blockquote>
+<p>Looking at the output from my midi keyboard, I can see what to send to make music play in Ableton Live from javascript.</p>
+</blockquote>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> MidiStream = <span class="hljs-built_in">require</span>(<span class="hljs-string">'midi-stream'</span>)
+<span class="hljs-keyword">var</span> output = MidiStream(<span class="hljs-string">'JAVASCRIPT MUSIC'</span>, {
+  virtual: <span class="hljs-literal">true</span>
+})
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">play</span>(<span class="hljs-params">note, at, duration</span>) </span>{
+  setTimeout(() =&gt; output.write([<span class="hljs-number">144</span>, note, <span class="hljs-number">127</span>]), at * <span class="hljs-number">1000</span>)
+  setTimeout(() =&gt; output.write([<span class="hljs-number">144</span>, note, <span class="hljs-number">0</span>]), (at + duration) * <span class="hljs-number">1000</span>)
+}
+
+play(<span class="hljs-number">48</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0.7</span>)
+play(<span class="hljs-number">55</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0.7</span>)
+play(<span class="hljs-number">60</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>)
+</code></pre>
+<h2><strong>Launchpad</strong> is Midi too!</h2>
+<blockquote>
+<p>It may not look like a keyboard, but it's buttons are just arranged differently.</p>
+</blockquote>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> launchpad = MidiStream(<span class="hljs-string">'Launchpad Mini'</span>)
+launchpad.on(<span class="hljs-string">'data'</span>, <span class="hljs-built_in">console</span>.log)
+</code></pre>
+<h3>Light up the buttons</h3>
+<blockquote>
+<p>Sending the same message back to the launchpad will light up that particular button.</p>
+</blockquote>
+<pre><code class="language-js">launchpad.on(<span class="hljs-string">'data'</span>, (data) =&gt; launchpad.write(data))
+</code></pre>
+<h2>observ</h2>
+<blockquote>
+<p>Streams can be okay for working with, but I prefer observables. This module is my favorite approach. It's &quot;just javascript&quot;.</p>
+</blockquote>
+<p><a href="http://github.com/Raynos/observ" target="_blank">http://github.com/Raynos/observ</a></p>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> Observ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'observ'</span>)
+<span class="hljs-keyword">var</span> value = Observ()
+
+value.set(<span class="hljs-number">100</span>)
+<span class="hljs-built_in">console</span>.log(value()) <span class="hljs-comment">//=&gt; 100</span>
+</code></pre>
+<h3>What makes it <strong>observable</strong>?</h3>
+<pre><code class="language-js">value(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newValue</span>) </span>{
+  <span class="hljs-comment">// is called every time the value changes</span>
+  <span class="hljs-built_in">console</span>.log(newValue) <span class="hljs-comment">//=&gt; 200, 300</span>
+})
+
+value.set(<span class="hljs-number">200</span>)
+value.set(<span class="hljs-number">300</span>)
+</code></pre>
+<h2>array-grid</h2>
+<blockquote>
+<p>We can set any object as a value, including an array grid.</p>
+</blockquote>
+<p><a href="http://github.com/mmckegg/array-grid" target="_blank">http://github.com/mmckegg/array-grid</a></p>
+<pre><code><span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>
+<span class="hljs-number">5</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>  <span class="hljs-number">8</span>
+<span class="hljs-number">9</span>  <span class="hljs-number">10</span> <span class="hljs-number">11</span> <span class="hljs-number">12</span>
+</code></pre>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> ArrayGrid = <span class="hljs-built_in">require</span>(<span class="hljs-string">'array-grid'</span>)
+<span class="hljs-keyword">var</span> grid = ArrayGrid([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>])
+grid.get(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">//=&gt; 2</span>
+grid.get(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) <span class="hljs-comment">//=&gt; 7</span>
+grid.get(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>) <span class="hljs-comment">//=&gt; 12</span>
+grid.data <span class="hljs-comment">//=&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]</span>
+</code></pre>
+<h2>Observable Launchpad Grid</h2>
+<blockquote>
+<p>Let's convert that midi stream to an observable grid.</p>
+</blockquote>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> Observ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'observ'</span>)
+<span class="hljs-keyword">var</span> ArrayGrid = <span class="hljs-built_in">require</span>(<span class="hljs-string">'array-grid'</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">LaunchpadToGrid</span> (<span class="hljs-params">midiPort</span>) </span>{
+  <span class="hljs-keyword">var</span> obs = Observ(ArrayGrid([], [<span class="hljs-number">8</span>, <span class="hljs-number">8</span>]))
+  midiPort.on(<span class="hljs-string">'data'</span>, (data) =&gt; {
+    <span class="hljs-keyword">var</span> col = data[<span class="hljs-number">1</span>] % <span class="hljs-number">16</span>
+    <span class="hljs-keyword">var</span> row = <span class="hljs-built_in">Math</span>.floor(data[<span class="hljs-number">1</span>] / <span class="hljs-number">16</span>)
+    <span class="hljs-keyword">if</span> (col &lt; <span class="hljs-number">8</span> &amp;&amp; row &lt; <span class="hljs-number">8</span>) {
+      <span class="hljs-keyword">var</span> newValue = ArrayGrid(obs().data.slice(), obs().shape)
+      newValue.set(row, col, data[<span class="hljs-number">2</span>])
+      obs.set(newValue)
+    }
+  })
+  <span class="hljs-keyword">return</span> obs
+}
+</code></pre>
+<h3>Let's try it out!</h3>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> inputGrid = LaunchpadToGrid(launchpad)
+inputGrid((grid) =&gt; {
+  <span class="hljs-keyword">var</span> result = <span class="hljs-string">''</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> row = <span class="hljs-number">0</span>; row &lt; grid.shape[<span class="hljs-number">0</span>]; row++) {
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> col = <span class="hljs-number">0</span>; col &lt; grid.shape[<span class="hljs-number">1</span>]; col++) {
+      result += (<span class="hljs-string">'  '</span> + (grid.get(row, col) || <span class="hljs-number">0</span>)).slice(-<span class="hljs-number">3</span>) + <span class="hljs-string">' '</span>
+    }
+    result += <span class="hljs-string">'\n'</span>
+  }
+  <span class="hljs-built_in">console</span>.log(result)
+})
+</code></pre>
+<h2>Convert grid back to midi</h2>
+<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">GridToMidi</span> (<span class="hljs-params">port, fn</span>) </span>{
+  <span class="hljs-keyword">var</span> obs = Observ()
+  <span class="hljs-keyword">var</span> outputValues = {}
+  obs(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">grid</span>) </span>{
+    <span class="hljs-keyword">if</span> (grid) {
+      <span class="hljs-keyword">var</span> length = grid.shape[<span class="hljs-number">0</span>] * grid.shape[<span class="hljs-number">1</span>]
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; length; i++) {
+        <span class="hljs-keyword">var</span> value = grid.data[i] || <span class="hljs-number">0</span>
+        <span class="hljs-keyword">var</span> message = fn(value, i)
+        <span class="hljs-keyword">if</span> (message) {
+          <span class="hljs-keyword">var</span> key = message[<span class="hljs-number">0</span>] + <span class="hljs-string">'/'</span> + message[<span class="hljs-number">1</span>]
+          <span class="hljs-keyword">var</span> lastValue = outputValues[key] &amp;&amp; outputValues[key][<span class="hljs-number">2</span>] || <span class="hljs-number">0</span>
+          <span class="hljs-keyword">if</span> (lastValue !== value) {
+            outputValues[key] = message
+            port.write(message)
+          }
+        }
+      }
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-built_in">Object</span>.keys(outputValues).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">key</span>) </span>{
+        <span class="hljs-keyword">var</span> lastMessage = outputValues[key]
+        <span class="hljs-keyword">if</span> (lastMessage &amp;&amp; lastMessage[<span class="hljs-number">2</span>]) {
+          port.write(outputValues[key] = [lastMessage[<span class="hljs-number">0</span>], lastMessage[<span class="hljs-number">1</span>], <span class="hljs-number">0</span>])
+        }
+      })
+    }
+  })
+  <span class="hljs-keyword">return</span> obs
+}
+</code></pre>
+<h3>Send it to <strong>Ableton Live</strong></h3>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> outputGrid = GridToMidi(output, (value, i) =&gt; {
+  <span class="hljs-keyword">return</span> [<span class="hljs-number">144</span>, <span class="hljs-number">36</span> + i, value]
+})
+
+inputGrid(outputGrid.set)
+</code></pre>
+<h3>Send it to Launchpad <em>(lights)</em></h3>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> outputLights = GridToMidi(launchpad, (value, i) =&gt; {
+  <span class="hljs-keyword">var</span> id = (i % <span class="hljs-number">8</span>) + (<span class="hljs-built_in">Math</span>.floor(i / <span class="hljs-number">8</span>) * <span class="hljs-number">16</span>)
+  <span class="hljs-keyword">return</span> [<span class="hljs-number">144</span>, id, value]
+})
+
+inputGrid(outputLights.set)
+</code></pre>
+<h2>So far:</h2>
+<p><img src="diagrams/trigger.mmd.png" alt=""></p>
+<h2>observ-transform</h2>
+<blockquote>
+<p>Tools for transforming observables, works like transform streams.</p>
+</blockquote>
+<p><a href="http://github.com/mmckegg/observ-transform" target="_blank">http://github.com/mmckegg/observ-transform</a></p>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> Transform = <span class="hljs-built_in">require</span>(<span class="hljs-string">'observ-transform'</span>)
+<span class="hljs-keyword">var</span> connect = <span class="hljs-built_in">require</span>(<span class="hljs-string">'observ-transform/connect'</span>)
+<span class="hljs-keyword">var</span> send = <span class="hljs-built_in">require</span>(<span class="hljs-string">'observ-transform/send'</span>)
+</code></pre>
+<h3>Clean up using <code>connect</code> and <code>send</code></h3>
+<pre><code class="language-js">connect(
+  LaunchpadToGrid(launchpad),
+  send(
+    GridToMidi(output, (value, i) =&gt; { <span class="hljs-keyword">return</span> [<span class="hljs-number">144</span>, <span class="hljs-number">36</span> + i, value] }),
+    GridToMidi(launchpad, (value, i) =&gt; {
+      <span class="hljs-keyword">var</span> id = (i % <span class="hljs-number">8</span>) + (<span class="hljs-built_in">Math</span>.floor(i / <span class="hljs-number">8</span>) * <span class="hljs-number">16</span>)
+      <span class="hljs-keyword">return</span> [<span class="hljs-number">144</span>, id, value]
+    })
+  )
+)
+</code></pre>
+<blockquote>
+<p>There, much nicer. A lot easier to see the signal flow now.</p>
+</blockquote>
+<h3>Range Transform</h3>
+<blockquote>
+<p>I want to be able to play multiple instruments at the same time using the one launchpad. This transform will allow me to grab parts of the grid and send it to different tracks.</p>
+</blockquote>
+<blockquote>
+<p>Observe a subset of the grid.</p>
+</blockquote>
+<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Range</span> (<span class="hljs-params">shape, offset</span>) </span>{
+  <span class="hljs-keyword">return</span> Transform((input) =&gt; {
+    <span class="hljs-keyword">return</span> input &amp;&amp; input.getRange(shape, offset)
+  })
+}
+</code></pre>
+<h2>Map ranges to different tracks</h2>
+<blockquote>
+<p>145, 146, etc specify different input channels in midi. We can connect these to different tracks in Ableton Live. 36 corresponds to C1.</p>
+</blockquote>
+<pre><code class="language-js">connect(
+  LaunchpadToGrid(launchpad),
+  send(
+    connect(Range([<span class="hljs-number">3</span>, <span class="hljs-number">8</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]), GridToMidi(output, (value, i) =&gt; {
+      <span class="hljs-keyword">return</span> [<span class="hljs-number">144</span>, scale(i, -<span class="hljs-number">1</span>), value]
+    })),
+    connect(Range([<span class="hljs-number">2</span>, <span class="hljs-number">8</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">0</span>]), GridToMidi(output, (value, i) =&gt; {
+      <span class="hljs-keyword">return</span> [<span class="hljs-number">145</span>, scale(i, -<span class="hljs-number">1</span>), value]
+    })),
+    connect(Range([<span class="hljs-number">1</span>, <span class="hljs-number">8</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">0</span>]), GridToMidi(output, (value, i) =&gt; {
+      <span class="hljs-keyword">return</span> [<span class="hljs-number">146</span>, scale(i, <span class="hljs-number">0</span>), value]
+    })),
+    connect(Range([<span class="hljs-number">1</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">6</span>, <span class="hljs-number">0</span>]), GridToMidi(output, (value, i) =&gt; {
+      <span class="hljs-keyword">return</span> [<span class="hljs-number">147</span>, <span class="hljs-number">36</span> + i, value]
+    })),
+    connect(Range([<span class="hljs-number">1</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">7</span>, <span class="hljs-number">0</span>]), GridToMidi(output, (value, i) =&gt; {
+      <span class="hljs-keyword">return</span> [<span class="hljs-number">148</span>, <span class="hljs-number">36</span> + i, value]
+    })),
+    connect(Range([<span class="hljs-number">2</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">6</span>, <span class="hljs-number">4</span>]), GridToMidi(output, (value, i) =&gt; {
+      <span class="hljs-keyword">return</span> [<span class="hljs-number">149</span>, scale(i), value]
+    })),
+    GridToMidi(launchpad, (value, i) =&gt; {
+      <span class="hljs-keyword">var</span> id = (i % <span class="hljs-number">8</span>) + (<span class="hljs-built_in">Math</span>.floor(i / <span class="hljs-number">8</span>) * <span class="hljs-number">16</span>)
+      <span class="hljs-keyword">return</span> [<span class="hljs-number">144</span>, id, value]
+    })
+  )
+)
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">scale</span> (<span class="hljs-params">pos, octave</span>) </span>{
+  <span class="hljs-keyword">var</span> notes = [ <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span> ]
+  <span class="hljs-keyword">var</span> scalePosition = <span class="hljs-built_in">Math</span>.floor(pos % notes.length)
+  <span class="hljs-keyword">var</span> multiplier = <span class="hljs-built_in">Math</span>.floor(pos / notes.length) + (octave || <span class="hljs-number">0</span>)
+  <span class="hljs-keyword">var</span> note = notes[scalePosition]
+  <span class="hljs-keyword">return</span> note + (multiplier * <span class="hljs-number">12</span>) + <span class="hljs-number">63</span>
+}
+</code></pre>
+<h2>Looping, repeating, etc?</h2>
+<p>To do anything involving <strong>time</strong>, we first need to know <strong>what time it is</strong>.</p>
+<h3>Midi Clock</h3>
+<blockquote>
+<p>Almost all midi compatible sequencers have the ability to send (or recieve) a midi clock. This allows one app to sync to the tempo and timing of another.</p>
+</blockquote>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> midiClock = MidiStream.openInput(<span class="hljs-string">'CLOCK INPUT'</span>, {
+  virtual: <span class="hljs-literal">true</span>,
+  includeTiming: <span class="hljs-literal">true</span>
+})
+
+midiClock.on(<span class="hljs-string">'data'</span>, <span class="hljs-built_in">console</span>.log)
+</code></pre>
+<h3>Observable position</h3>
+<blockquote>
+<p>Let's convert the ticks to a running position that we can use later in our transforms.</p>
+</blockquote>
+<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">PositionFromMidiClock</span> (<span class="hljs-params">port</span>) </span>{
+  <span class="hljs-keyword">var</span> obs = Observ(<span class="hljs-number">0</span>)
+  <span class="hljs-keyword">var</span> ticks = <span class="hljs-number">0</span>
+  port.on(<span class="hljs-string">'data'</span>, (data) =&gt; {
+    <span class="hljs-keyword">if</span> (data[<span class="hljs-number">0</span>] === <span class="hljs-number">248</span>) {
+      ticks += <span class="hljs-number">1</span>
+      obs.set(ticks / <span class="hljs-number">24</span>)
+    }
+  })
+  <span class="hljs-keyword">return</span> obs
+}
+</code></pre>
+<h3>What time is it?</h3>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> currentPosition = PositionFromMidiClock(midiClock)
+currentPosition(<span class="hljs-built_in">console</span>.log)
+</code></pre>
+<h2>Repeater</h2>
+<blockquote>
+<p>Now that I'm triggering all of these instruments with just my two hands, it would be nice if I didn't have to play exactly in time. Also it's one of the defining sounds of computer music, that perfectly synced beat.</p>
+</blockquote>
+<blockquote>
+<p>Held buttons will trigger continuously synced with the clock at the rate specified.</p>
+</blockquote>
+<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Repeater</span> (<span class="hljs-params">currentPosition, rate</span>) </span>{
+  <span class="hljs-keyword">var</span> currentFrame = <span class="hljs-literal">null</span>
+  <span class="hljs-keyword">return</span> Transform((input, args) =&gt; {
+    <span class="hljs-keyword">if</span> (args.rate) {
+      <span class="hljs-keyword">var</span> pos = (args.currentPosition % args.rate)
+      <span class="hljs-keyword">if</span> (pos === <span class="hljs-number">0</span>) {
+        currentFrame = input
+      }
+      <span class="hljs-keyword">return</span> (pos / args.rate) &lt; <span class="hljs-number">0.5</span> ? currentFrame : <span class="hljs-literal">null</span>
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span> input
+    }
+  }, {
+    rate: rate,
+    currentPosition: currentPosition
+  })
+}
+</code></pre>
+<h3>Hook it up!</h3>
+<pre><code class="language-js">connect(
+  LaunchpadToGrid(launchpad),
+  Repeater(currentPosition, <span class="hljs-number">1</span> / <span class="hljs-number">2</span>)
+  send(...)
+)
+</code></pre>
+<h2>Recorder</h2>
+<blockquote>
+<p>It would be really nice if I could lock in a sequence if I like what I hear. Let's add a recorder that records all events ready for use later.</p>
+</blockquote>
+<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">RecordTo</span> (<span class="hljs-params">target, currentPosition</span>) </span>{
+  <span class="hljs-keyword">var</span> obs = Observ()
+  obs((value) =&gt; {
+    <span class="hljs-keyword">var</span> last = target[target.length - <span class="hljs-number">1</span>]
+    <span class="hljs-keyword">if</span> (last &amp;&amp; last.at === currentPosition()) {
+      target.pop()
+    }
+    target.push({
+      at: currentPosition(),
+      value: value
+    })
+  })
+  <span class="hljs-keyword">return</span> obs
+}
+</code></pre>
+<h2>Loop recorded events</h2>
+<blockquote>
+<p>Whenever we play something that we like, and want to hear again, we can press a loop button, and whatever we just played will start to loop.</p>
+</blockquote>
+<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getLoop</span> (<span class="hljs-params">start, length</span>) </span>{
+  <span class="hljs-keyword">return</span> {
+    length: length,
+    events: recordedEvents.filter((event) =&gt; {
+      <span class="hljs-keyword">return</span> event.at &gt;= start &amp;&amp; event.at &lt; start + length
+    }).map((event) =&gt; {
+      <span class="hljs-keyword">return</span> {
+        at: event.at % length,
+        value: event.value
+      }
+    }).sort((a, b) =&gt; { <span class="hljs-keyword">return</span> a.at - b.at })
+  }
+}
+</code></pre>
+<h3>Create loop</h3>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> loopLength = Observ(<span class="hljs-number">8</span>)
+<span class="hljs-keyword">var</span> currentLoop = Observ()
+
+launchpad.on(<span class="hljs-string">'data'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
+  <span class="hljs-keyword">if</span> (data[<span class="hljs-number">0</span>] === <span class="hljs-number">176</span> &amp;&amp; data[<span class="hljs-number">1</span>] === <span class="hljs-number">104</span> &amp;&amp; data[<span class="hljs-number">2</span>]) {
+    currentLoop.set(
+      getLoop(currentPosition() - loopLength(), loopLength())
+    )
+  }
+})
+</code></pre>
+<h3>Loop player</h3>
+<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">PlayLoop</span> (<span class="hljs-params">currentPosition</span>) </span>{
+  <span class="hljs-keyword">return</span> Transform((input, args) =&gt; {
+    <span class="hljs-keyword">if</span> (input &amp;&amp; input.events.length) {
+      <span class="hljs-keyword">var</span> value = input.events[input.events.length - <span class="hljs-number">1</span>].value
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; input.events.length; i++) {
+        <span class="hljs-keyword">if</span> (input.events[i].at &gt; args.currentPosition % input.length) {
+          <span class="hljs-keyword">return</span> value
+        } <span class="hljs-keyword">else</span> {
+          value = input.events[i].value
+        }
+      }
+      <span class="hljs-keyword">return</span> value
+    }
+  }, { currentPosition: currentPosition })
+}
+</code></pre>
+<h3>We want this:</h3>
+<p><img src="diagrams/looper.mmd.png" alt=""></p>
+<h2>Here's one I prepared earlier.</h2>
+<blockquote>
+<p>I've gone ahead and implemented the looper and added a bunch of controls for manipulating the loop. Clear, undo, redo, stutter, suppress. The ability to remove notes. Everything is done with observ-transform. See <a href="midi-looper.js" target="_blank">midi-looper.js</a>.</p>
+</blockquote>
+<h2>What about <strong>Web Audio</strong>?</h2>
+<blockquote>
+<p>This is cool and all, but why are we even using this Ableton Live thing, when we could just use Web Audio?</p>
+</blockquote>
+<h2>audio-slot</h2>
+<blockquote>
+<p>It can be a lot of fiddly work using the Web Audio API directly. This module makes it easier to create audio graphs and retriggering sounds.</p>
+</blockquote>
+<p><a href="http://github.com/mmckegg/audio-slot" target="_blank">http://github.com/mmckegg/audio-slot</a></p>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> AudioSlot = <span class="hljs-built_in">require</span>(<span class="hljs-string">'audio-slot'</span>)
+</code></pre>
+<h3>AudioContext+</h3>
+<blockquote>
+<p>We need to create a context object that includes all of the different nodes we want to use in our graph.</p>
+</blockquote>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> context = {
+  audio: <span class="hljs-keyword">new</span> AudioContext(),
+  nodes: {
+    osc: <span class="hljs-built_in">require</span>(<span class="hljs-string">'audio-slot/sources/oscillator'</span>),
+    env: <span class="hljs-built_in">require</span>(<span class="hljs-string">'audio-slot/params/envelope'</span>),
+    filter: <span class="hljs-built_in">require</span>(<span class="hljs-string">'audio-slot/processors/filter'</span>)
+  }
+}
+</code></pre>
+<h3>Sound!</h3>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> slot = AudioSlot(context)
+slot.set({
+  sources: [
+    { node: <span class="hljs-string">'osc'</span>,
+      shape: <span class="hljs-string">'sawtooth'</span>,
+      amp: { node: <span class="hljs-string">'env'</span>, attack: <span class="hljs-number">1</span>, release: <span class="hljs-number">1</span>, value: <span class="hljs-number">0.4</span> }
+    }
+  ],
+  processors: [
+    { node: <span class="hljs-string">'filter'</span>,
+      frequency: { node: <span class="hljs-string">'env'</span>, value: <span class="hljs-number">20000</span>, decay: <span class="hljs-number">0.5</span>, sustain: <span class="hljs-number">0.01</span> }
+    }
+  ]
+})
+
+slot.connect(context.audio.destination)
+slot.triggerOn(<span class="hljs-number">2</span>)
+slot.triggerOff(<span class="hljs-number">4</span>)
+</code></pre>
+<h2>budo</h2>
+<p>A <strong>dev server</strong> for rapid prototyping that automatically <em>&quot;browserifies&quot;</em> your code.</p>
+<p><a href="https://github.com/mattdesl/budo" target="_blank">https://github.com/mattdesl/budo</a></p>
+<blockquote>
+<p>Let's try it out:</p>
+</blockquote>
+<pre><code class="language-bash">$ npm install budo -g
+$ budo web-audio-looper.js:bundle
+</code></pre>
+<h2><img src="http://loopjs.com/loop-drop.png" alt=""></h2>
+<blockquote>
+<p>I've taken everything so far in this talk, added a bunch of css and html and put it into an app.</p>
+</blockquote>
+<h3><a href="https://youtu.be/fQWRoLf7bns?t=1009" target="_blank">https://youtu.be/fQWRoLf7bns?t=1009</a></h3>
+<h2>Loop Drop</h2>
+<p><em>A looper, modular synth and sampler designed for improvisation and live performance.</em></p>
+<p><a href="http://loopjs.com" target="_blank">http://loopjs.com</a></p>
+<pre><code class="language-bash">$ npm install loop-drop -g
+$ loop-drop
+</code></pre>
+<h2>Electron</h2>
+<blockquote>
+<p>My app is written in JavaScript and is powered by Web Audio and Web MIDI, but it runs on the desktop and has access to your file system.</p>
+</blockquote>
+<p>Build cross-platform desktop applications in JavaScript and HTML+CSS.</p>
+<p><a href="http://electron.atom.io" target="_blank">http://electron.atom.io</a></p>
+<h2>DESTROY WITH SCIENCE</h2>
+<p><em>My live experiments</em></p>
+<p><a href="https://soundcloud.com/destroy-with-science" target="_blank">https://soundcloud.com/destroy-with-science</a></p>
+<blockquote>
+<p>I have now developed a new method of composing music. Rather than painting all of my music by hand and then trying to figure out how to play it live, I instead start live. I just play what I want to hear, and record everything. When I like what I hear, I release it.</p>
+</blockquote>
+<h2>I have no idea what I am doing!</h2>
+<blockquote>
+<p>When I started this project I barely new anything. If you have a creative problem that needs solving, do give JavaScript a try.</p>
+</blockquote>
+<h2>Just start writing.</h2>
+<p>JavaScript makes a great <strong>sketchbook</strong>!</p>
+<blockquote>
+<p>Don't worry about frameworks or best practices. Get your ideas out there. Solve small problems for yourself. Scratch your own itch.</p>
+</blockquote>
+<blockquote>
+<p>With a creative JavaScript project like Loop Drop, it is easy to get carried away on interesting sidetracks, but as you continue, keep reminding yourself what problem you are trying to solve.</p>
+</blockquote>
+<h2>Rewrite constantly.</h2>
+<p>But, not all at once!</p>
+<blockquote>
+<p>Don't be afraid to completely rewrite things, just don't try and tackle the whole project at once.</p>
+</blockquote>
+<blockquote>
+<p>This is very easy to do if you follow a modular pattern.</p>
+</blockquote>
+<h2>Thanks for listening!</h2>
+<ul>
+<li>Any questions? <strong>Tweet @MattMcKegg</strong></li>
+<li>View notes at <a href="https://github.com/mmckegg/jsconfasia-talk-2015" target="_blank">github.com/mmckegg/jsconfasia-talk-2015</a></li>
+<li>To hear more visit <a href="https://soundcloud.com/destroy-with-science" target="_blank"><em><strong>soundcloud.com/destroy-with-science</strong></em></a></li>
+</ul>
+
+  </div>
+  <script>
+    var viewer = document.querySelector('.Viewer')
+    var firstElement = viewer.firstElementChild
+    firstElement.classList.add('-active')
+    more(firstElement)
+
+    function copyAll (element) {
+      var range = document.createRange();
+      range.selectNodeContents(element);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range)
+      document.execCommand('copy')
+      sel.removeAllRanges();
+    }
+
+    function next () {
+      var active = viewer.querySelectorAll('.-active')
+      var nextElement = getNext(last(active))
+      if (nextElement) {
+        nextElement.classList.add('-active')
+        each(active, function (el) {
+          el.classList.remove('-active')
+        })
+        more(nextElement)
+      }
+    }
+
+    function prev () {
+      var active = viewer.querySelectorAll('.-active')
+      var prevElement = getPrev(first(active))
+      if (prevElement) {
+        prevElement.classList.add('-active')
+        each(active, function (el) {
+          el.classList.remove('-active')
+        })
+        more(prevElement)
+      }
+    }
+
+    function getNext (current) {
+      if (current) {
+        var nextElement = current.nextElementSibling
+        while (nextElement && !isHeading(nextElement)) {
+          nextElement = nextElement.nextElementSibling
+        }
+        return nextElement
+      }
+
+    }
+
+    function getPrev (current) {
+      if (current) {
+        var prevElement = current.previousElementSibling
+        while (prevElement && !isHeading(prevElement)) {
+          prevElement = prevElement.previousElementSibling
+        }
+        return prevElement
+      }
+    }
+
+    function more (current) {
+      if (current) {
+        var nextElement = current.nextElementSibling
+        while (nextElement && !isHeading(nextElement)) {
+          nextElement.classList.add('-active')
+          if (nextElement.tagName === 'PRE') {
+            nextElement.tabIndex = 0
+            nextElement.focus()
+            copyAll(nextElement)
+          }
+          nextElement = nextElement.nextElementSibling
+        }
+      }
+    }
+
+    function each (elements, fn) {
+      for (var i = 0; i < elements.length; i++) {
+        fn(elements[i])
+      }
+    }
+
+    function first (elements) {
+      if (elements.length) {
+        return elements[0]
+      }
+    }
+
+    function isHeading (element) {
+      return !!element.tagName.match(/^H[0-9]$/)
+    }
+
+    function last (elements) {
+      if (elements.length) {
+        return elements[elements.length-1]
+      }
+    }
+
+    document.onkeydown = function (e) {
+      if (e.keyCode === 39) { // right arrow
+        next()
+      } else if (e.keyCode === 37) { // left arrow
+        prev()
+      } else if (e.keyCode === 40) { // left arrow
+        more()
+      }
+    }
+  </script>
+</body>
+</html>

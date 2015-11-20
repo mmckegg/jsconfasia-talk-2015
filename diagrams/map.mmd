@@ -1,0 +1,22 @@
+graph TD
+L((Launchpad))
+subgraph JavaScript #JS
+  input[LaunchpadToGrid]
+  input --> |Range| output1[GridToMidi]
+  input --> |Range| output2[GridToMidi]
+  input --> |Range|output3[GridToMidi]
+  input --> |Range|output4[GridToMidi]
+  input --> lights[GridToMidi]
+end
+subgraph Ableton Live #AL
+  T1(track 1)
+  T2(track 2)
+  T3(track 3)
+  T4(track 4)
+end
+L -.-> input
+output1 -.-> T1
+output2 -.-> T2
+output3 -.-> T3
+output4 -.-> T4
+lights -.-> L

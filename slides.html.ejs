@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8" />
+  <title>Slides</title>
+  <style>
+    body, html {
+      height: 100%;
+      background: #222;
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+      overflow: hidden;
+      color: #CCC;
+      font-weight: lighter;
+      font-size: 40px;
+      letter-spacing: 1px;
+    }
+
+    h1, h2, h3 {
+      font-weight: lighter;
+      text-align: center;
+      color: white;
+      margin: 20px 0;
+      max-width: 80%;
+    }
+
+    p {
+      max-width: 80%;
+      text-align: center;
+    }
+
+    a {
+      color: #F0F;
+      text-decoration: none;
+      font-weight: normal;
+    }
+
+    ul {
+      max-width: 70%;
+    }
+
+    strong {
+      color: #0FF;
+      font-weight: normal;
+    }
+
+    em {
+      color: #FF0;
+    }
+
+    em strong {
+      color: #FFA;
+    }
+
+    h1 {
+      font-size: 300%;
+    }
+
+    h2 {
+      font-size: 200%;
+    }
+
+    img {
+      max-width: 90%;
+      max-height: 80%
+    }
+
+    .coffeescript .javascript, .javascript .xml, .tex .hljs-formula, .xml .javascript, .xml .vbscript, .xml .css, .xml .hljs-cdata {
+      opacity: 0.9 !important;
+    }
+
+    .Viewer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+      justify-content: center;
+    }
+
+    .Viewer > * {
+      display: none
+    }
+
+    .Viewer > .-active {
+      display: block
+    }
+
+    .Viewer > blockquote {
+      display: none !important
+    }
+
+    pre {
+      min-width: 60%;
+      max-height: 80%;
+      overflow: auto;
+      padding: 10px;
+      background: #111;
+      border: 1px solid #333;
+      color: #DDD;
+    }
+
+    pre > code {
+      display: block;
+      font: 20px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+      padding: 10px;
+      padding-bottom: 100px;
+    }
+
+    p code, ul code {
+      padding: 0 10px;
+      background: #111;
+      color: #EEE;
+      border: 1px solid #333;
+      font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    }
+
+    ::selection {
+      background: #AAA;
+    }
+
+    <%= additionalStyles %>
+
+  </style>
+</head>
+<body>
+  <div class='Viewer'>
+    <%- body %>
+  </div>
+  <script>
+    var viewer = document.querySelector('.Viewer')
+    var firstElement = viewer.firstElementChild
+    firstElement.classList.add('-active')
+    more(firstElement)
+
+    function copyAll (element) {
+      var range = document.createRange();
+      range.selectNodeContents(element);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range)
+      document.execCommand('copy')
+      sel.removeAllRanges();
+    }
+
+    function next () {
+      var active = viewer.querySelectorAll('.-active')
+      var nextElement = getNext(last(active))
+      if (nextElement) {
+        nextElement.classList.add('-active')
+        each(active, function (el) {
+          el.classList.remove('-active')
+        })
+        more(nextElement)
+      }
+    }
+
+    function prev () {
+      var active = viewer.querySelectorAll('.-active')
+      var prevElement = getPrev(first(active))
+      if (prevElement) {
+        prevElement.classList.add('-active')
+        each(active, function (el) {
+          el.classList.remove('-active')
+        })
+        more(prevElement)
+      }
+    }
+
+    function getNext (current) {
+      if (current) {
+        var nextElement = current.nextElementSibling
+        while (nextElement && !isHeading(nextElement)) {
+          nextElement = nextElement.nextElementSibling
+        }
+        return nextElement
+      }
+
+    }
+
+    function getPrev (current) {
+      if (current) {
+        var prevElement = current.previousElementSibling
+        while (prevElement && !isHeading(prevElement)) {
+          prevElement = prevElement.previousElementSibling
+        }
+        return prevElement
+      }
+    }
+
+    function more (current) {
+      if (current) {
+        var nextElement = current.nextElementSibling
+        while (nextElement && !isHeading(nextElement)) {
+          nextElement.classList.add('-active')
+          if (nextElement.tagName === 'PRE') {
+            nextElement.tabIndex = 0
+            nextElement.focus()
+            copyAll(nextElement)
+          }
+          nextElement = nextElement.nextElementSibling
+        }
+      }
+    }
+
+    function each (elements, fn) {
+      for (var i = 0; i < elements.length; i++) {
+        fn(elements[i])
+      }
+    }
+
+    function first (elements) {
+      if (elements.length) {
+        return elements[0]
+      }
+    }
+
+    function isHeading (element) {
+      return !!element.tagName.match(/^H[0-9]$/)
+    }
+
+    function last (elements) {
+      if (elements.length) {
+        return elements[elements.length-1]
+      }
+    }
+
+    document.onkeydown = function (e) {
+      if (e.keyCode === 39) { // right arrow
+        next()
+      } else if (e.keyCode === 37) { // left arrow
+        prev()
+      } else if (e.keyCode === 40) { // left arrow
+        more()
+      }
+    }
+  </script>
+</body>
+</html>

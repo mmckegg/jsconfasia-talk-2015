@@ -1,0 +1,34 @@
+graph LR
+L((Launchpad))
+subgraph JavaScript #JS
+  subgraph input
+     input[LaunchpadToGrid]
+     repeater[Repeater]
+  end
+  subgraph loop
+    RecordTo
+    currentLoop
+    PlayLoop
+    getLoop
+  end
+  subgraph Output
+    Overlay
+    Ranges
+    Overlay ==> Ranges
+  end
+  currentLoop ==> PlayLoop
+  input ==> repeater
+  repeater ==> Overlay
+  PlayLoop ==> Overlay
+  Overlay --> RecordTo
+  RecordTo -.-> |recordedEvents| getLoop
+getLoop -.-> currentLoop
+end
+subgraph Ableton Live #AL
+  T(midi input)
+end
+L -.-> input
+Ranges --> T
+Ranges --> T
+Ranges --> T
+Ranges --> T

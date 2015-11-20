@@ -1,0 +1,12 @@
+graph LR
+L((Launchpad))
+subgraph JavaScript #JS
+  input[LaunchpadToGrid]==>output[GridToMidi]
+  input[LaunchpadToGrid]-->lights[GridToMidi]
+end
+subgraph Ableton Live #AL
+  T1(track 1)
+end
+L-.->input
+output-.->T1
+lights-.->L
