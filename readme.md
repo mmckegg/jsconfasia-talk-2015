@@ -598,8 +598,6 @@ $ loop-drop
 
 Build cross-platform desktop applications in JavaScript and HTML+CSS.
 
-[http://electron.atom.io](http://electron.atom.io)
-
 ## DESTROY WITH SCIENCE
 
 _My live experiments_
